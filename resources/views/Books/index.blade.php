@@ -18,11 +18,15 @@
          <td>Название</td>
          <td>Данные</td>
          </tr>         
-         @foreach ($books as $book)
+         @foreach ($books as $book)         
          <tr> 
+            <td>@foreach($book->authors as $author)
+            {{ $author->surname }}  {{ $author->name }}.  {{ $author->middlename }}.
+            @endforeach</td>           
             <td>{{$book->id}}</td>           
             <td><a href="#">{{$book->name}}</a></td>
-            <td>{{$book->publishplace}}, {{$book->publishyear}}.- {{$book->pages}}c.({{$book->title}})</td>
+            <td>{{$book->publishplace}}, {{$book->publishyear}}.- {{$book->pages}}c.({{$book->rubric->title}})                        
+            </td>
             <td><a  href="{{ route('books.edit',$book->id) }}">Редактировать</a><td>  
             <td>
                <form action="{{ route('books.destroy', $book->id)}}" method="post">  
@@ -32,7 +36,7 @@
                </form>
             <td>  
          </tr>               
-         @endforeach         
+         @endforeach           
       </table> 
       <div class="d-flex">
       {!! $books->links() !!}

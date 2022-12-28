@@ -12,5 +12,5 @@ class Books_Author extends Model
     //use HasFactory;
     protected $fillable = [
         'book_id', 'author_id'
-    ];
+    ];    
 }

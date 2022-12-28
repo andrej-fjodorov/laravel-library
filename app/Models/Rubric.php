@@ -14,4 +14,9 @@ class Rubric extends Model
     protected $fillable = [
         'id', 'title','shottitle'
     ];
+    public function books()
+    {
+        return $this->hasMany(Book::class);
+       
+    }
 }

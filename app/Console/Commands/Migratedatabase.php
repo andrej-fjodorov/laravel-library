@@ -5,6 +5,7 @@ namespace App\Console\Commands;
 use App\Models\Article;
 use App\Models\Article_Author;
 use App\Models\Author;
+use App\Models\Book;
 use App\Models\Books;
 use App\Models\Books_Author;
 use App\Models\Files;
@@ -155,7 +156,7 @@ class Migratedatabase extends Command
         lb.RUBRIC = lr.ID AND lr.REF = 701
         AND lr.SHORT = r.shottitle");  
         foreach ($old_books as $old_book) {
-            $new_book = new Books;
+            $new_book = new Book;
             $new_book->name = $old_book->NAME;
             $new_book->additionalname = $old_book->NAMEADD;
             $new_book->response = $old_book->RESPONS;

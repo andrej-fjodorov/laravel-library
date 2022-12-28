@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Book;
 use App\Models\Books;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,8 @@ class BookController extends Controller
      */
     public function index()
     {
-        $books = Books::paginate(30);        
+        /*$books = Book::paginate(20);*/  
+        $books = Book::where("name", "like", 'А'. "%")->paginate(30);             
         return view('books.index', compact('books'));
     }
 
@@ -36,7 +38,7 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        $book = new Books();  
+        $book = new Book();  
         $book->name =  $request->get('name');  
         $book->additionalname = $request->get('additionalname');  
         $book->response = $request->get('response');  
@@ -68,7 +70,7 @@ class BookController extends Controller
      */
     public function show($id)
     {
-        return view('books.show',compact('book'));
+        //
     }
 
     /**
@@ -79,7 +81,7 @@ class BookController extends Controller
      */
     public function edit($id)
     {
-        $book = Books::find($id);
+        $book = Book::find($id);
         return view('books.edit',compact('book'));
     }
 
@@ -92,7 +94,7 @@ class BookController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $book = new Books();  
+        $book = new Book();  
         $book->name =  $request->get('name');  
         $book->additionalname = $request->get('additionalname');  
         $book->response = $request->get('response');  
@@ -124,9 +126,9 @@ class BookController extends Controller
      */
     public function destroy($id)
     {
-        $book=Books::find($id);  
+        $book=Book::find($id);  
         $book->delete();  
         return redirect()->route('books.index')
-        ->with('success','Статистический сборник удален.');
+        ->with('success','Статистический сборник .');
     }
 }

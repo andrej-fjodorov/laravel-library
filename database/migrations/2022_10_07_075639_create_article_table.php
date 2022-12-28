@@ -20,7 +20,7 @@ class CreateArticleTable extends Migration
             $table->text('annotation');
             $table->unsignedInteger('issue_id')->nullable();            
             //$table->foreign('issue_id')->references('id')->on('issue');
-            $table->unsignedBigInteger('file_id')->nullable();
+            //$table->unsignedBigInteger('file_id')->nullable();
            // $table->foreign('file_id')->references('id')->on('files');                                  
             
         });
