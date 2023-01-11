@@ -17,4 +17,8 @@ class Statrelease extends Model
     {
         return $this->hasOne(Statrelease::class);
     }
+    public function rubric()
+    {
+        return $this->belongsTo(Statreleaserubric::class);
+    }   
 }

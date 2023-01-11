@@ -23,3 +23,5 @@ Route::get('/', function () {
 Route::resource('statreleases',StatreleaseController::class);
 
 Route::resource('books',BookController::class);
+
+

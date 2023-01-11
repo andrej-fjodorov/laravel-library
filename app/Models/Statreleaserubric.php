@@ -13,8 +13,10 @@ class Statreleaserubric extends Model
    protected $fillable = [
     'id', 'title'
 ];    
-public function statreleaserubric()
-   {
-     return $this->hasOne(Statreleaserubric::class);
-   }  
+public function statreleases()
+    {
+        return $this->hasMany(Statrelease::class);
+       
+    }
+
 }

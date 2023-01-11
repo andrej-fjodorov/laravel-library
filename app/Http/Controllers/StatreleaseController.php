@@ -19,8 +19,8 @@ class StatreleaseController extends Controller
         return view('statreleases.index', compact('statreleases'));
         /*$statreleases = DB::select("SELECT * FROM statrelease s
         JOIN statreleaserubric sr
-        ON sr.id =s.rubric_id");
-        return view('statreleases.index', compact('statreleases'));*/              
+        ON sr.id =s.rubric_id");*/
+        return view('statreleases.index', compact('statreleases'));             
     }
 
     /**

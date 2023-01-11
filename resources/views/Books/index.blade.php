@@ -22,12 +22,11 @@
          <tr> 
             <td>@foreach($book->authors as $author)
             {{ $author->surname }}  {{ $author->name }}.  {{ $author->middlename }}.
-            @endforeach</td>           
-            <td>{{$book->id}}</td>           
+            @endforeach</td>                  
             <td><a href="#">{{$book->name}}</a></td>
-            <td>{{$book->publishplace}}, {{$book->publishyear}}.- {{$book->pages}}c.({{$book->rubric->title}})                        
+            <td>{{$book->publishplace}}, {{$book->publishyear}}.- {{$book->pages}}c. {{$book->title}}               
             </td>
-            <td><a  href="{{ route('books.edit',$book->id) }}">Редактировать</a><td>  
+            <td><a  href="{{ route('books.edit', $book->id) }}">Редактировать</a><td>  
             <td>
                <form action="{{ route('books.destroy', $book->id)}}" method="post">  
                @csrf

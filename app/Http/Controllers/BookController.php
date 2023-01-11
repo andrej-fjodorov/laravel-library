@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
-use App\Models\Books;
+use App\Models\Author;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class BookController extends Controller
@@ -14,9 +15,20 @@ class BookController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        /*$books = Book::paginate(20);*/  
-        $books = Book::where("name", "like", 'А'. "%")->paginate(30);             
+    {              
+         //$books = Book::paginate(20);         
+         $books  = Book ::join('book_author','book.id','=','book_author.book_id')
+         ->join('author','author.id','=','book_author.author_id') 
+         ->join('rubric','rubric.id','=','book.rubric_id') 
+         ->where("author.surname", "like", 'Э'. "%")
+         ->select('book.id','book.name','book.publishplace','book.publishyear','book.pages','rubric.title','author.surname') 
+         ->paginate(10);                          
+         //->get(['book.id', 'book.name', 'book.publishplace','book.publishyear','book.pages','rubric.title','author.surname']);
+         
+        
+       // $books = Book :: has('authors')->where("surname", "like", 'Лукин'. "%")->paginate(20);
+        //$books = Book::where("name", "like", 'А'. "%")->paginate(20);       
+        //$authors = Author::where("surname", "like", 'Ильин'. "%");               
         return view('books.index', compact('books'));
     }
 
