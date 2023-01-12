@@ -21,4 +21,9 @@ class Book extends Model
     {
         return $this->belongsTo(Rubric::class);
     }
+    public function files()
+    {
+        return $this->belongsTo(Files::class);
+    }
+
 }
