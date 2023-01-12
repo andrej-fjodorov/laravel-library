@@ -20,8 +20,9 @@ class BookController extends Controller
          $books  = Book ::join('book_author','book.id','=','book_author.book_id')
          ->join('author','author.id','=','book_author.author_id') 
          ->join('rubric','rubric.id','=','book.rubric_id') 
+         ->leftjoin('files','files.id','=','book.file_id') 
          ->where("author.surname", "like", 'Ю'. "%")
-         ->select('book.id','book.name','book.publishplace','book.publishyear','book.pages','rubric.title','author.surname') 
+         ->select('book.id','book.name','book.publishplace','book.publishyear','book.pages','rubric.title','author.surname','files.filepath','files.filename') 
          ->paginate(10);                          
          //->get(['book.id', 'book.name', 'book.publishplace','book.publishyear','book.pages','rubric.title','author.surname']);
          
