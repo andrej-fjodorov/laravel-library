@@ -9,6 +9,7 @@
    </head>  
    <body> 
       <h1 align="center">Книжный каталог</h1>  
+      <?= asset('storage/Files/books/1655731387ehmpiricheskie_issledovanija.jpg') ?>
       <div class="pull-right">
                 <a class="btn btn-success"  href="{{ route('books.create') }}">Добавить книгу</a>
      </div>
@@ -24,7 +25,8 @@
             {{ $author->surname }}  {{ $author->name }}.  {{ $author->middlename }}.
             @endforeach</td>                  
             <td><a href="#">{{$book->name}}</a></td>
-            <td>{{$book->publishplace}}, {{$book->publishyear}}.- {{$book->pages}}c. {{$book->title}}               
+            <td>{{$book->publishplace}}, {{$book->publishyear}}.- {{$book->pages}}c. {{$book->title}}           
+            <td><a href="storage{{$book->filepath}}">{{$book->filename}}</a></td>
             </td>
             <td><a  href="{{ route('books.edit', $book->id) }}">Редактировать</a><td>  
             <td>
