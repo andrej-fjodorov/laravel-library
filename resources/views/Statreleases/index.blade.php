@@ -1,14 +1,16 @@
-<html>
-   
+@extends('layout') 
+<html>   
    <head>
       <title>Статистические сборники</title>
       <script src="{{ asset('js/app.js') }}" defer></script>
    
    <!-- Styles -->
    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-   </head>  
+   </head>   
    <body> 
-      <h1 align="center">Статистические сборники</h1>  
+      @section('sidebar') 
+      @endsection('sidebar')     
+      <h1 align="center">Статистические сборники</h1>         
       <table class="table">
          <tr>            
          <td>№</td>

@@ -1,5 +1,5 @@
-<html>
-   
+@extends('layout')
+<html>   
    <head>
       <title>Книжный каталог</title>
       <script src="{{ asset('js/app.js') }}" defer></script>
@@ -7,9 +7,13 @@
    <!-- Styles -->
    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
    </head>  
-   <body> 
-      <h1 align="center">Книжный каталог</h1>  
-      <?= asset('storage/Files/books/1655731387ehmpiricheskie_issledovanija.jpg') ?>
+   <body>     
+      <h1 align="center">Книжный каталог</h1>
+      @section('sidebar') 
+      <nav class="navbar navbar-default">
+         <a href="{{ route('statreleases.store') }}">Статистические сборники</a>
+         <a href="{{ route('books.store') }}">Книжный каталог</a>
+      @stop     
       <div class="pull-right">
                 <a class="btn btn-success"  href="{{ route('books.create') }}">Добавить книгу</a>
      </div>
@@ -42,5 +46,6 @@
       <div class="d-flex">
       {!! $books->links() !!}
       </div>            
-   </body>
+   </body>   
 </html>
+
