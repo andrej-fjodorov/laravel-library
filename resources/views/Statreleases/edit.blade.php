@@ -1,10 +1,12 @@
+@extends('layout')
 <head>
       <title>Статистические сборники</title>
       <script src="{{ asset('js/app.js') }}" defer></script>
    
    <!-- Styles -->
    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-   </head>   
+   </head>
+   @section('content')        
    <div class="row" style="margin-bottom: 20px;">
         <div class="col-lg-12 margin-tb">
             <div class="pull-left">
@@ -104,6 +106,6 @@
                 <button type="submit" class="btn btn-success">Добавить</button>
             </div>
         </div>
-
+        @endsection('content')     
     </form>
 

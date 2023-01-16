@@ -9,11 +9,7 @@
    </head>  
    <body>     
       <h1 align="center">Книжный каталог</h1>
-      @section('sidebar') 
-      <nav class="navbar navbar-default">
-         <a href="{{ route('statreleases.store') }}">Статистические сборники</a>
-         <a href="{{ route('books.store') }}">Книжный каталог</a>
-      @stop     
+      @section('content')      
       <div class="pull-right">
                 <a class="btn btn-success"  href="{{ route('books.create') }}">Добавить книгу</a>
      </div>
@@ -45,7 +41,8 @@
       </table> 
       <div class="d-flex">
       {!! $books->links() !!}
-      </div>            
+      </div>
+      @endsection('content')          
    </body>   
 </html>
 

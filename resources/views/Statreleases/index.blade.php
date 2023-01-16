@@ -6,11 +6,13 @@
    
    <!-- Styles -->
    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-   </head>   
-   <body> 
-      @section('sidebar') 
-      @endsection('sidebar')     
-      <h1 align="center">Статистические сборники</h1>         
+   </head>
+   @section('content')        
+   <body>       
+      <h1 align="center">Статистические сборники</h1> 
+      <div class="pull-right">
+         <a class="btn btn-success"  href="{{ route('statreleases.create') }}">Добавить сборник</a>
+      </div>        
       <table class="table">
          <tr>            
          <td>№</td>
@@ -37,4 +39,5 @@
       {!! $statreleases->links() !!}
       </div>            
    </body>
+   @endsection('content')     
 </html>
