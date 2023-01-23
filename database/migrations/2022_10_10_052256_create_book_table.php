@@ -36,6 +36,7 @@ class CreateBookTable extends Migration
             $table->unsignedInteger('withraw');  
             $table->unsignedBigInteger('rubric_id')->nullable();
             $table->unsignedBigInteger('file_id')->nullable();
+            $table->uuid('uuid');
            // $table->foreign('rubric_id')->references('id')->on('rubric');                      
            
         });

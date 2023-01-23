@@ -20,6 +20,7 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Str;
 
 class Migratedatabase extends Command
 {
@@ -177,6 +178,7 @@ class Migratedatabase extends Command
             $new_book->withraw = $old_book->withdraw;
             $new_book->rubric_id = $old_book->rubric;           
             $new_book->file_id = $this->getFile($old_book->file, $old_book->file_name);
+            $new_book->uuid = Str::uuid()->toString();
             $new_book->save();
             $new_book->refresh(); 
                 $books = DB::select(
@@ -240,7 +242,8 @@ class Migratedatabase extends Command
             $new_statrelease->code = $old_statrelease->CODE;
             $new_statrelease->authorsign = $old_statrelease->AUTHSIGN; 
             $new_statrelease->numbersk = $old_statrelease->NUMSK; 
-            $new_statrelease->rubric_id = $old_statrelease->RUBRIC;            
+            $new_statrelease->rubric_id = $old_statrelease->RUBRIC; 
+            $new_statrelease->uuid = Str::uuid()->toString();           
             $new_statrelease->save();   
             
         }  

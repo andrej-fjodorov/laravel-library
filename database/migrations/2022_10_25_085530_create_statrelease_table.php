@@ -27,6 +27,7 @@ class CreateStatreleaseTable extends Migration
             $table->char('authorsign')->nullable();
             $table->unsignedInteger('numbersk')->nullable();            
             $table->unsignedBigInteger('rubric_id')->nullable();
+            $table->uuid('uuid');
            // $table->foreign('rubric_id')->references('id')->on('rubric');
         });
     }
