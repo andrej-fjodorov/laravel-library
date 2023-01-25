@@ -15,6 +15,8 @@ class CreateCollectionItemTable extends Migration
     {
         Schema::create('collection_item', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('collection_id');                  
+            $table->unsignedBigInteger('lit_uuid');  
             $table->timestamps();
         });
     }

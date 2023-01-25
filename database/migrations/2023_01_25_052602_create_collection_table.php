@@ -15,6 +15,8 @@ class CreateCollectionTable extends Migration
     {
         Schema::create('collection', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id')->nullable(); 
+            $table->string('title',255);            
             $table->timestamps();
         });
     }
