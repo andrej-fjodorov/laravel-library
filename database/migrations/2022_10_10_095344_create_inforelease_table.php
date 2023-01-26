@@ -20,6 +20,7 @@ class CreateInforeleaseTable extends Migration
             $table->unsignedSmallInteger('numbersk');
             $table->smallInteger('publishyear');
             $table->unsignedBigInteger('rubric_id')->nullable(); 
+            $table->uuid('uuid');
             //$table->foreign('rubric_id')->references('id')->on('rubric');         
            
         });

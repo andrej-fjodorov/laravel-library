@@ -372,8 +372,8 @@ class Migratedatabase extends Command
         $this->info('Загрузка рубрик успешно завершена');
         $this->loadAuthor();
         $this->info('Загрузка авторов успешно завершена');
-        /*$this->loadFile();
-        $this->info('Загрузка файлов статей успешно завершена');*/
+        $this->loadFile();
+        $this->info('Загрузка файлов статей успешно завершена');
         $this->loadBookfile();
         $this->info('Загрузка файлов книг успешно завершена');       
         $this->loadinfoarticlefile();
@@ -386,8 +386,8 @@ class Migratedatabase extends Command
         $this->info('Загрузка  статистических сборников успешно завершена');
         $this->loadBooks();
         $this->info('Загрузка книг успешно завершена');
-        /*$this->loadJournal();  
-        $this->info('Загрузка журналов успешно завершена');*/  
+        $this->loadJournal();  
+        $this->info('Загрузка журналов успешно завершена');  
         /*$get = Storage::disk('public')->exists('Files/inform/1-2000-06.doc');        
         echo($get);*/   
         
