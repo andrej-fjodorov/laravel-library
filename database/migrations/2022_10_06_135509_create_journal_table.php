@@ -18,6 +18,7 @@ class CreateJournalTable extends Migration
             $table->string('name',200);
             $table->string('ISSN',9);
             $table->unsignedBigInteger('rubric_id')->nullable();
+            $table->uuid('uuid');
             //$table->foreign('rubric_id')->references('id')->on('rubric');       
             
         });       
