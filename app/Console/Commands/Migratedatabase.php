@@ -73,7 +73,8 @@ class Migratedatabase extends Command
             $new_journal = new Journal;
             $new_journal->name = $old_journal->NAME;
             $new_journal->ISSN = $old_journal->ISSN;
-            $new_journal->rubric_id = $old_journal->rubric;              
+            $new_journal->rubric_id = $old_journal->rubric; 
+            $new_journal->uuid = Str::uuid()->toString();              
             $new_journal->save();
             $new_journal->refresh();            
             $old_issues = DB::select("
@@ -266,7 +267,8 @@ class Migratedatabase extends Command
             $new_inforelease->name = $old_inforelease->NAME; 
             $new_inforelease->number = $old_inforelease->NUMBER; 
             $new_inforelease->numbersk = $old_inforelease->NUMSK;  
-            $new_inforelease->publishyear = $old_inforelease->ISDYEAR;                          
+            $new_inforelease->publishyear = $old_inforelease->ISDYEAR;
+            $new_inforelease->uuid = Str::uuid()->toString();                           
             $new_inforelease->save(); 
             $new_inforelease->refresh();  
            
