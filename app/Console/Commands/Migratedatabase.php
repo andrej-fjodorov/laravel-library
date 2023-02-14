@@ -379,9 +379,9 @@ class Migratedatabase extends Command
         $this->loadBookfile();
         $this->info('Загрузка файлов книг успешно завершена');       
         $this->loadinfoarticlefile();
-        /*$this->info('Загрузка файлов  статей информационных выпусков успешно завершена');
+        $this->info('Загрузка файлов  статей информационных выпусков успешно завершена');
         $this->loadInforeleases(); 
-        $this->info('Загрузка информационных выпусков успешно завершена');*/  
+        $this->info('Загрузка информационных выпусков успешно завершена');
         $this->loadStatreleaserubric();
         $this->info('Загрузка статистических рубрик успешно завершена');
         $this->LoadStatreleases();
