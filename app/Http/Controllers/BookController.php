@@ -16,12 +16,12 @@ class BookController extends Controller
      */
     public function index()
     {              
-         //$books = Book::paginate(20);         
-         $books  = Book ::join('book_author','book.id','=','book_author.book_id')
+         $books = Book::paginate(10);         
+         /*$books  = Book ::join('book_author','book.id','=','book_author.book_id')
          ->join('author','author.id','=','book_author.author_id') 
          ->join('rubric','rubric.id','=','book.rubric_id') 
          ->leftjoin('files','files.id','=','book.file_id') 
-         //->where("author.surname", "like", 'Ивановская'. "%")
+         ->where("author.surname", "like", 'Копытова'. "%")
          ->select('book.id','book.name','book.publishplace','book.publishyear','book.pages','rubric.title','author.surname','files.filepath','files.filename') 
          ->paginate(10);                          
          //->get(['book.id', 'book.name', 'book.publishplace','book.publishyear','book.pages','rubric.title','author.surname']);
@@ -29,7 +29,7 @@ class BookController extends Controller
         
        // $books = Book :: has('authors')->where("surname", "like", 'Лукин'. "%")->paginate(20);
         //$books = Book::where("name", "like", 'А'. "%")->paginate(20);       
-        //$authors = Author::where("surname", "like", 'Ильин'. "%");               
+        //$authors = Author::where("surname", "like", 'Ильин'. "%");*/               
         return view('books.index', compact('books'));
     }
 
@@ -143,5 +143,19 @@ class BookController extends Controller
         $book->delete();  
         return redirect()->route('books.index')
         ->with('success','Статистический сборник .');
+    }
+
+    public function search(Request $request)    
+    {
+        $search = $request->input('search');
+        $books  = Book ::join('book_author','book.id','=','book_author.book_id')
+         ->join('author','author.id','=','book_author.author_id') 
+         ->join('rubric','rubric.id','=','book.rubric_id') 
+         ->leftjoin('files','files.id','=','book.file_id') 
+         ->where("author.surname", "like", "{$search}". "%")
+         ->orWhere("book.name", "like", "{$search}". "%")
+         ->select('book.id','book.name','book.publishplace','book.publishyear','book.pages','rubric.title','author.surname','files.filepath','files.filename') 
+         ->paginate(10);
+         return view('search', compact('books'));                        
     }
 }
