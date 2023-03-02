@@ -3,7 +3,13 @@
    <head>
       <title>Книжный каталог</title>
       <script src="{{ asset('js/app.js') }}" defer></script>
-   
+      <script>
+         function resetSearch() {
+            let searchInput = document.getElementById("searchInput");
+            searchInput.value = null;
+            searchInput.closest("form").submit();
+         }
+      </script>  
    <!-- Styles -->
    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
    </head>  
@@ -12,7 +18,13 @@
       @section('content')      
       <div class="pull-right">
                 <a class="btn btn-success"  href="{{ route('books.create') }}">Добавить книгу</a>
-     </div>
+     </div> 
+     <form action="" method="GET">
+      @csrf
+      <input id="searchInput" type="text" name="search" value="{{request('search')}}" required/>
+      <button type="submit">Найти</button>
+      <input type="button" onclick="resetSearch()" value="Сбросить">
+  </form>
       <table class="table">
          <tr>            
          <td>№</td>
@@ -23,7 +35,7 @@
          <tr> 
             <td>@foreach($book->authors as $author)
             {{ $author->surname }}  {{ $author->name }}.  {{ $author->middlename }}.
-            @endforeach</td>                  
+            @endforeach                 
             <td><a href="#">{{$book->name}}</a></td>
             <td>{{$book->publishplace}}, {{$book->publishyear}}.- {{$book->pages}}c. {{$book->title}}           
             <td><a href="storage{{$book->filepath}}">{{$book->filename}}</a></td>
@@ -39,6 +51,7 @@
          </tr>               
          @endforeach           
       </table> 
+      Найдено записей: {{$books->total()}}
       <div class="d-flex">
       {!! $books->links() !!}
       </div>

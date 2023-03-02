@@ -24,7 +24,7 @@ Route::resource('statreleases',StatreleaseController::class);
 
 Route::resource('books',BookController::class);
 
-Route::get('/search', 'App\Http\Controllers\BookController@search')->name('search');
+//Route::get('/search', 'App\Http\Controllers\BookController@search')->name('search');
 
 
 

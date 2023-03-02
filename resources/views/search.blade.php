@@ -3,9 +3,9 @@
     <script src="{{ asset('js/app.js') }}" defer></script>
  
  <!-- Styles -->
- <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+ <link href="{{ asset('css/app.css') }}" rel="stylesheet"> 
  </head> 
- <!--<form action="{{route('search')}}" method="GET" role="search">
+ <!--<form action="" method="GET" role="search">
     {{ csrf_field() }}
     <div class="input-group">
         <input type="text" class="form-control" name="search"
@@ -16,10 +16,11 @@
         </span>
     </div>
 </form>--> 
-<form action="{{ route('search') }}" method="GET">
+<form action="" method="GET">
     @csrf
-    <input type="text" name="search" required/>
+    <input type="text" name="search" value="{{request('search')}}"  onclick="FormReset()" required/>
     <button type="submit">Найти</button>
+    <button type="reset" onclick="resetForm()">Сбросить</button>
 </form>
 <table class="table">
     <tr>            
@@ -27,7 +28,7 @@
     <td>Название</td>
     <td>Данные</td>
     </tr>         
-    @foreach ($books as $book)         
+    @foreach ($books as $book)           
     <tr> 
        <td>@foreach($book->authors as $author)
        {{ $author->surname }}  {{ $author->name }}.  {{ $author->middlename }}.
@@ -47,7 +48,8 @@
     </tr>      
     @endforeach           
  </table> 
+ Найдено записей: {{$books->total()}}
  <div class="d-flex">
-    {!!$books->render()!!}
+    {!!$books->links()!!}
 </div>
  

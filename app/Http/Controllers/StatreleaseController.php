@@ -19,7 +19,7 @@ class StatreleaseController extends Controller
         $statreleases  = Statrelease ::join('statreleaserubric','statreleaserubric.id','=','statrelease.rubric_id')        
          ->where("statreleaserubric.title", "like", 'Цены и финансы'. "%")
          ->select('statrelease.id','statrelease.name','statrelease.publishplace','statrelease.publishyear','statrelease.pages','statreleaserubric.title') 
-         ->paginate(10);       
+         ->paginate(10);               
         return view('statreleases.index', compact('statreleases'));             
     }
 
