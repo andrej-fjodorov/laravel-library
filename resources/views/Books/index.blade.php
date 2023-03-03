@@ -25,6 +25,42 @@
       <button type="submit">Найти</button>
       <input type="button" onclick="resetSearch()" value="Сбросить">
   </form>
+  <h2>Фильтры</h2>
+  <form action="" method="GET" class="row g-3">
+   @csrf
+   <div class="col-md-6">
+   <label class="form-label">Заглавие</label>
+   <input class="form-control" id="searchInput" type="text" name="search" value="" required/><br>
+   </div>
+   <div class="col-md-6">
+   <label class="form-label">Номер тома</label>
+   <input class="form-control" id="searchInput" type="text" name="search" value="" ><br>
+   </div>
+   <div class="col-md-6">
+   <label class="form-label">Рубрика</label>
+   <input class="form-control" id="searchInput" type="text" name="search" value="" ><br>
+   </div>
+   <div class="col-md-6">
+   <label class="form-label">Автор</label>
+   <input class="form-control" id="searchInput" type="text" name="search" value="" ><br>
+   </div>
+   <div class="col-md-6">
+   <label class="form-label">Год издания</label>
+   <input class="form-control" id="searchInput" type="text" name="search" value="" ><br>
+   </div>
+   <div class="col-md-6">
+   <label class="form-label">Аннотация</label>
+   <input class="form-control" id="searchInput" type="text" name="search" value="" ><br>
+   </div>
+   <div class="col-md-6">
+   <label class="form-label">Издательство</label>
+   <input class="form-control" id="searchInput" type="text" name="search" value="" ><br>
+   </div>
+   <div class="col-md-6">
+   <label class="form-label">Место издания</label>
+   <input class="form-control" id="searchInput" type="text" name="search" value="" ><br>
+   </div>
+  </form>
       <table class="table">
          <tr>            
          <td>№</td>
