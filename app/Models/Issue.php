@@ -13,4 +13,17 @@ class Issue extends Model
     protected $fillable = [
         'id', 'journal_id','issuecode','issueyear','issuenumber','issuedate'
     ];
+    public function journals()
+    {
+        return $this->hasOne(Journal::class);
+    }
+    public function articles()
+    {
+        return $this->hasMany(Article::class);
+    }
+    public function authors()
+    {
+        return $this->belongsToMany(Author::class);
+    }    
+     
 }

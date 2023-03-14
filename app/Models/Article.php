@@ -13,4 +13,16 @@ class Article extends Model
     protected $fillable = [
         'id','name', 'pages','annotation', 'id'. 'issue_id','file_id'
     ];
+    public function issue()
+    {
+        return $this->belongsTo(Issue::class);
+    }
+    public function files()
+    {
+        return $this->belongsTo(Files::class);
+    }
+    public function authors()
+    {
+        return $this->belongsToMany(Author::class,'article_author');
+    }    
 }

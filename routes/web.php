@@ -3,6 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StatreleaseController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\JournalController;
+use App\Http\Controllers\IssueController;
+use App\Http\Controllers\ArticleController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +27,16 @@ Route::get('/', function () {
 Route::resource('statreleases',StatreleaseController::class);
 
 Route::resource('books',BookController::class);
+
+Route::resource('journals',JournalController::class);
+
+Route::resource('issues',IssueController::class);
+
+//Route::get('issues/{id}', 'App\Http\Controllers\IssueController@show');
+
+//Route::get('journals/{id}', 'App\Http\Controllers\JournalController@show');
+
+Route::resource('articles',ArticleController::class);
 
 //Route::get('/search', 'App\Http\Controllers\BookController@search')->name('search');
 
